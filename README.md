@@ -30,6 +30,8 @@ Make sure Ollama is running in a separate terminal:
 
 ```bash
 ollama serve
+ollama pull llama3.2:3b
+ollama ls
 ```
 
 ### Run the CLI Tool
