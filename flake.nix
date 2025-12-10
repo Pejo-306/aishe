@@ -24,6 +24,10 @@
             # Note: mcp, wikipedia-mcp, ollama, fastapi, uvicorn, httpx are not available in nixpkgs
             # These will be installed via pip in the shellHook
           ]);
+
+        # Google Cloud SDK with GKE auth plugin
+        gcloud = pkgs.google-cloud-sdk.withExtraComponents
+          [ pkgs.google-cloud-sdk.components.gke-gcloud-auth-plugin ];
       in {
         apps.aishe = {
           type = "app";
@@ -64,6 +68,11 @@
 
             # Ollama for local LLM
             ollama
+
+            # Cloud and Kubernetes tools
+            gcloud
+            kubectl
+            kubernetes-helm
 
             # Development tools
             git
